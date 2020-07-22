@@ -1,16 +1,17 @@
-
-
 .box {
     width: 500px;
     padding: 40px;
-    position: absolute;
     top: 50%;
-    left: 50%;
     background: #191919;
-    ;
     text-align: center;
     transition: 0.25s;
-    margin-top: 100px
+    margin-top: 60px;
+    opacity: 0.75;
+}
+
+.image{
+    padding-top: 50px;
+    width: 200px;
 }
 
 .box input[type="text"],

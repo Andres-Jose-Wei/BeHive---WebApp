@@ -1,18 +1,16 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <form class="box">
+        <div class="col-12">
+                <form class="box mx-auto d-block">
                     <h1 class="title">R E G I S T E R</h1>
-                    <input type="text" name="" placeholder="First Name">
-                    <input type="text" name="" placeholder="Last Name">
-                    <input type="text" name="" placeholder="Email">
-                    <input type="text" name="" placeholder="Username">
-                    <input type="password" name="" placeholder="Password">
-                    <input type="text" name="" placeholder="Group(Given to you by your Company)">
-                    <input type="submit" name=""  value="Submit">
+                        <input [(ngModel)]="firstName" type="text" name="firstName" placeholder="First Name">
+                        <input [(ngModel)]="lastName" type="text" name="lastName" placeholder="Last Name">
+                        <input [(ngModel)]="email" type="text" name="email" placeholder="Email">
+                        <input [(ngModel)]="username" type="text" name="username" placeholder="Username">
+                        <input [(ngModel)]="password" type="password" name="password" placeholder="Password">
+                        <input [(ngModel)]="group" type="text" name="group" placeholder="Group(Given to you by your Company)">
+                    <input type="submit" (click)="registerUser()" name="submit"  value="Submit">
                 </form>
-            </div>
         </div>
     </div>
 </div>
