@@ -9,12 +9,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { InterceptorService } from './services/interceptor.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { GaugeComponent } from './components/gauge/gauge.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    DashboardComponent
+    DashboardComponent,
+    GaugeComponent
   ],
   imports: [
     BrowserModule,
