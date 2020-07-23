@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from 'src/app/services/registration.service';
 import { User } from 'src/app/classes/user';
 import { CookieService } from 'ngx-cookie-service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -18,7 +18,7 @@ export class RegistrationComponent implements OnInit {
   group: string;
 
 
-  constructor(private registrationService: RegistrationService) { }
+  constructor(private registrationService: RegistrationService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +30,7 @@ export class RegistrationComponent implements OnInit {
     this.registrationService.registerUser(user).subscribe(
       (response) => {
         console.log(response);
+        this.router.navigate(['/login'], {replaceUrl: true});
       }
     );
   }

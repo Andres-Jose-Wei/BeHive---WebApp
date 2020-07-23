@@ -8,16 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class RegistrationService {
 
-  private readonly LOGIN_URL = environment.serviceUrl + environment.registerEndpoint;
+  private readonly LOGIN_URL = environment.registrationServiceUrl + environment.registerEndpoint;
 
   constructor(private http: HttpClient) { }
 
   public registerUser(data: User): Observable<any> {
 
-    return this.http.post<string>
+    return this.http.post<any>
     (
       this.LOGIN_URL, data, {headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       }
       });
   }

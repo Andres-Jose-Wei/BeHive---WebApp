@@ -6,9 +6,9 @@
         <div class="col-12">
                 <form class="box mx-auto d-block">
                     <h1 class="title">L O G I N</h1>
-                    <input type="text" name="" placeholder="Username">
-                    <input type="password" name="" placeholder="password">
-                    <input type="submit" name="" size="50" value="Submit">
+                    <input [(ngModel)]="username" type="text" name="username" placeholder="Username">
+                    <input [(ngModel)]="password" type="password" name="password" placeholder="password">
+                    <input type="submit" (click)="login()" name="" size="50" value="Submit">
                     <a class="forgot text-muted" href="#">Forgot password?</a><br><br>
                     <a class="forgot text-muted" routerLink="/registration">Create an account</a>
                 </form>

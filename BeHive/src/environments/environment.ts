@@ -3,8 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  serviceUrl: 'https://weiwu.online:8443/RegistrationService',
+  registrationServiceUrl: 'https://weiwu.online:8443/RegistrationService',
+  authenticationServiceUrl: 'https://weiwu.online:8443/AuthService',
   registerEndpoint: '/register',
+  loginEndpoint: '/login',
+  logoutEndpoint: '/logout',
   production: false
 };
 
