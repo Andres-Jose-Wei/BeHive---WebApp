@@ -11,6 +11,7 @@ export class InterceptorService implements HttpInterceptor{
   intercept(request: HttpRequest<any>, next: HttpHandler)
   {
     const newRequest = request.clone({withCredentials: true});
+    console.log('Interceptor: ', newRequest);
     return next.handle(newRequest);
   }
 }

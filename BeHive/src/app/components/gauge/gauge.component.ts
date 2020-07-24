@@ -13,6 +13,7 @@ am4core.useTheme(am4themes_animated);
 export class GaugeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private chart: am4charts.XYChart;
+
   overallRating: number;
   technicalRating: number;
   personalRating: number;
@@ -20,7 +21,7 @@ export class GaugeComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(private zone: NgZone) { }
 
   ngOnInit(): void {
-    this.overallRating = 50;
+    this.overallRating = 78;
     this.technicalRating = 98;
     this.personalRating = 57;
   }
@@ -35,6 +36,8 @@ export class GaugeComponent implements OnInit, OnDestroy, AfterViewInit {
       axis.min = 0;
       axis.max = 100;
       axis.strictMinMax = true;
+
+      axis.renderer.labels.template.fill = am4core.color('#FFFFFF');
 
       // Set inner radius
       chart.innerRadius = -20;

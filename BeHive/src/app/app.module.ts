@@ -10,13 +10,17 @@ import { CookieService } from 'ngx-cookie-service';
 import { InterceptorService } from './services/interceptor.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { GaugeComponent } from './components/gauge/gauge.component';
+import { SkillsgraphComponent } from './components/skillsgraph/skillsgraph.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
     DashboardComponent,
-    GaugeComponent
+    GaugeComponent,
+    SkillsgraphComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

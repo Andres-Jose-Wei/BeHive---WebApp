@@ -86,13 +86,14 @@ export class User {
          */
         isAvailable: false;
 
-        constructor(firstname: string, lastname: string, email: string, username: string , password: string, group: string)
+        constructor(firstname: string, lastname: string, email: string, username: string , password: string, group: Group)
         {
             this.firstName = firstname;
             this.lastName = lastname;
             this.email = email;
             this.username = username;
             this.password = password;
-            this.group = new Group(group);
+            this.group = group;
+            this.skillStats = new Map();
         }
 }

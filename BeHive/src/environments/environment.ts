@@ -5,9 +5,14 @@
 export const environment = {
   registrationServiceUrl: 'https://weiwu.online:8443/RegistrationService',
   authenticationServiceUrl: 'https://weiwu.online:8443/AuthService',
+  userServiceUrl: 'https://weiwu.online:8443/UserService',
   registerEndpoint: '/register',
   loginEndpoint: '/login',
   logoutEndpoint: '/logout',
+  userDataUrl: 'https://weiwu.online:8443/UserService',
+  userDataEndpoint: '/user',
+  userAddSkillEndpoint: '/user/skills',
+  isLogin: true,
   production: false
 };
 
