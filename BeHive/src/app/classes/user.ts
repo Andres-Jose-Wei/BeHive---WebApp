@@ -31,11 +31,11 @@ export class User {
         /**
          * A user’s skills and the ratings for each skill
          */
-        skillRatings: Map<Skill, Array<number>>;
+        skillRatings: Map<string, Array<number>>;
         /**
          * A user’s skills and their average rating for each skill
          */
-        skillStats: Map<Skill, number>;
+        skillStats: Map<string, number>;
         /**
          * A user’s rating within the position
          */

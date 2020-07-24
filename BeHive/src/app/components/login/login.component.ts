@@ -35,8 +35,9 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.username, this.password).subscribe(
       (response) => {
         this.userService.loadUser().subscribe((user) => {
-          console.log(user);
+          console.log('Recieved', user);
           this.userService.setUser(user);
+          console.log('Assigned', this.userService.getUser());
           environment.isLogin = false;
           this.router.navigate(['/dashboard'], {replaceUrl: true});
         });

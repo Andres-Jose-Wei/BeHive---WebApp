@@ -15,9 +15,11 @@ export class UserService {
 
   private readonly GETUSER_URL = environment.userDataUrl + environment.userDataEndpoint;
 
+  private readonly ADD_SKILL_URL = environment.userDataUrl + environment.userAddSkillEndpoint;
+
   constructor(private http: HttpClient) {
-    this.user = new User('DoomSlayer', 'Doom', 'asdf@gmail.com', 'DoomSlayer', '', new Group('Java is fun!'));
-    this.addSkill('Java');
+    //this.user = new User('DoomSlayer', 'Doom', 'asdf@gmail.com', 'DoomSlayer', '', new Group('Java is fun!'));
+    //this.addSkill('Java');
   }
 
   loadUser(): Observable<User>
@@ -40,16 +42,12 @@ export class UserService {
 
   addSkill(skill: string)
   {
-    if (this.user.skillStats == null)
-    {
-      this.user.skillStats = new Map();
-    }
-    this.user.skillStats.set(new Skill(skill), Math.random() * 100);
-    const skills = new Array<string>();
-    skills.push(skill);
-    this.http.post(this.GETUSER_URL, skills, {headers: {
-      'Content-Type': 'application/json',
-    }
-    });
+      console.log('In add skill');
+      this.user.skillStats[skill] = 0;
+      return this.http.post(this.ADD_SKILL_URL + '/' + skill, {},
+      {headers: {
+        'Content-Type': 'text/plain',
+      }}).pipe(map((response) => {
+      }));
   }
 }

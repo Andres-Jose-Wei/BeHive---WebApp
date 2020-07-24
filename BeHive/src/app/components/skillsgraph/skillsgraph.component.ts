@@ -6,6 +6,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { User } from 'src/app/classes/user';
 import { UserService } from 'src/app/services/user.service';
 import { Skill } from 'src/app/classes/skill';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 am4core.useTheme(am4themes_animated);
 @Component({
@@ -21,16 +22,17 @@ export class SkillsgraphComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(private zone: NgZone, private userService: UserService) { }
 
   newSkill(){
-    this.userService.addSkill(this.skillName);
+    this.userService.addSkill(this.skillName).subscribe();
     this.generateChart();
   }
 
   generateChart(){
     this.zone.runOutsideAngular(() => {
       this.createSkillBar('skills');
-      this.userService.getUser().skillStats.forEach((value: number, key: Skill) => {
-        this.addSkillToChart('skills', key.name, value);
-    });
+      Object.keys(this.userService.getUser().skillStats).forEach( (key) => {
+        console.log(this.userService.getUser().skillStats[key]);
+        this.addSkillToChart('skills', key, this.userService.getUser().skillStats[key]);
+      });
     });
   }
 

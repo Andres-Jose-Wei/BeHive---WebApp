@@ -22,6 +22,8 @@ export class AuthenticationService {
 
   private readonly LOGOUT_URL = environment.authenticationServiceUrl + environment.logoutEndpoint;
 
+  private readonly ADD_SKILL_URL = environment.userDataUrl + environment.userAddSkillEndpoint;
+
   constructor(private http: HttpClient, private cookies: CookieService, private router: Router) { }
 
   isLoggedIn()
@@ -63,4 +65,5 @@ export class AuthenticationService {
         this.router.navigate(['/login'], {replaceUrl: true});
       }));
   }
+
 }
