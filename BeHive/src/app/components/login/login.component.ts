@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
           this.userService.setUser(user);
           console.log('Assigned', this.userService.getUser());
           environment.isLogin = false;
-          //Validate if user is admin
+          //Validate if user is admin here
           this.userService.setIsAdmin(true);
           if (!this.userService.getIsAdmin)
           {
