@@ -27,7 +27,7 @@ export class UserService {
   {
     console.log(this.GETUSER_URL);
     return this.http.get<User>(this.GETUSER_URL,
-      {headers: {
+      {headers: {'Content-Type': 'application/json'
       }});
   }
 

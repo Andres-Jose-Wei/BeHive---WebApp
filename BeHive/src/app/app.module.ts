@@ -14,6 +14,8 @@ import { SkillsgraphComponent } from './components/skillsgraph/skillsgraph.compo
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserService } from './services/user.service';
 import { AdminconsoleComponent } from './components/adminconsole/adminconsole.component';
+import { AdminskillsComponent } from './components/adminskills/adminskills.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { AdminconsoleComponent } from './components/adminconsole/adminconsole.co
     GaugeComponent,
     SkillsgraphComponent,
     NavbarComponent,
-    AdminconsoleComponent
+    AdminconsoleComponent,
+    AdminskillsComponent
   ],
   imports: [
     BrowserModule,

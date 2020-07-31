@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { Key } from 'protractor';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
+import { Credentials } from '../classes/credentials';
 @Injectable({
   providedIn: 'root'
 })
@@ -28,23 +29,21 @@ export class AuthenticationService {
 
   isLoggedIn()
   {
-    return this.http.post(this.LOGIN_URL, {},
-      {headers: {
-        'Content-Type': 'text/plain',
-      }}).pipe(map((response) => {this.loggedIn = true;
-      }));
+    return this.loggedIn;
   }
 
   login(username: string, password: string)
   {
-    return this.http.post(this.LOGIN_URL, {},
+    const params = new Credentials();
+    params.username = username;
+    params.password = password;
+    return this.http.post(this.LOGIN_URL, params,
       {headers: {
-        'Content-Type': 'text/plain',
-        Authorization : this.createAuthToken(username, password),
-
+        'Content-Type': 'application/json',
       }}).pipe(map((response) => {
-        console.log(this.cookies.getAll());
-        const keyCookie = 'cookie';
+        console.log(response);
+        const token = 'token';
+        sessionStorage.setItem('token', response[token]);
         this.loggedIn = true;
       }));
   }
@@ -62,8 +61,17 @@ export class AuthenticationService {
       }}).pipe(map((response) => {
         console.log('Logged Out');
         environment.isLogin = true;
+        this.loggedIn = false;
+        sessionStorage.clear();
         this.router.navigate(['/login'], {replaceUrl: true});
       }));
+  }
+
+  checkToken(): Observable<any>
+  {
+    return this.http.get<any>('https://weiwu.online:8443/AuthService/checkheader',
+      {headers: {'Content-Type': 'application/json'
+      }});
   }
 
 }

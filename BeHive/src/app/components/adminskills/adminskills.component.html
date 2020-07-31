@@ -1,0 +1,24 @@
+<div class="admin-skills-containers">
+    <h1 class="text-center">Skills</h1>
+    <section>
+        <input class="add-skill" [(ngModel)]="skillToAdd" type="text" placeholder="Skill Name"><br>
+        <input class="add-skill-btn" type="submit" (click)="addSkill()" value="Add Skill">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="th2" scope="col"><h1>Skill</h1></th>
+                    <th class="th3" scope="col"><h1>Operations</h1></th>
+                </tr>
+            </thead>
+            <tbody *ngIf="loadedValues!=false">
+                <tr *ngFor="let skill of skills; ">
+                    <td><h2>{{skill}}</h2></td>
+                    <td>
+                        <input class="button-table" type="submit" value="Update">
+                        <input class="button-table" type="submit" value="Delete">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>

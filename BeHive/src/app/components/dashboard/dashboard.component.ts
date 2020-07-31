@@ -16,17 +16,13 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     environment.isLogin = false;
-    this.authenticationService.isLoggedIn().subscribe(
-      (response) => {
+    if (this.authenticationService.isLoggedIn())
+    {
         if (this.authenticationService.loggedIn === false)
         {
             this.router.navigate(['/login'], {replaceUrl: true});
         }
-      },
-      (error) => {
-        this.router.navigate(['/login'], {replaceUrl: true});
-      }
-    );
+    }
   }
 
   logout()
