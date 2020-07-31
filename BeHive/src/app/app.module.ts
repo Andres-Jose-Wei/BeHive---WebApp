@@ -13,6 +13,7 @@ import { GaugeComponent } from './components/gauge/gauge.component';
 import { SkillsgraphComponent } from './components/skillsgraph/skillsgraph.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserService } from './services/user.service';
+import { AdminconsoleComponent } from './components/adminconsole/adminconsole.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { UserService } from './services/user.service';
     DashboardComponent,
     GaugeComponent,
     SkillsgraphComponent,
-    NavbarComponent
+    NavbarComponent,
+    AdminconsoleComponent
   ],
   imports: [
     BrowserModule,

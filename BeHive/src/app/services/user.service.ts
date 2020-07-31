@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { ISankeyDiagramEvents } from '@amcharts/amcharts4/charts';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,13 +14,13 @@ export class UserService {
 
   private user: User;
 
+  private isAdmin: boolean;
+
   private readonly GETUSER_URL = environment.userDataUrl + environment.userDataEndpoint;
 
   private readonly ADD_SKILL_URL = environment.userDataUrl + environment.userAddSkillEndpoint;
 
   constructor(private http: HttpClient) {
-    //this.user = new User('DoomSlayer', 'Doom', 'asdf@gmail.com', 'DoomSlayer', '', new Group('Java is fun!'));
-    //this.addSkill('Java');
   }
 
   loadUser(): Observable<User>
@@ -40,6 +41,15 @@ export class UserService {
     this.user = user;
   }
 
+  getIsAdmin()
+  {
+    return this.isAdmin;
+  }
+
+  setIsAdmin(flag: boolean)
+  {
+    this.isAdmin = flag;
+  }
   addSkill(skill: string)
   {
       console.log('In add skill');

@@ -39,7 +39,15 @@ export class LoginComponent implements OnInit {
           this.userService.setUser(user);
           console.log('Assigned', this.userService.getUser());
           environment.isLogin = false;
-          this.router.navigate(['/dashboard'], {replaceUrl: true});
+          //Validate if user is admin
+          this.userService.setIsAdmin(true);
+          if (!this.userService.getIsAdmin)
+          {
+            this.router.navigate(['/dashboard'], {replaceUrl: true});
+          }else
+          {
+            this.router.navigate(['/admin'], {replaceUrl: true});
+          }
         });
       }
     );
