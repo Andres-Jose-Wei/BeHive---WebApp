@@ -14,7 +14,7 @@ export class SkillsService {
 
   public addSkill(skill: string): Observable<boolean>
   {
-    return this.http.post<boolean>(environment.addSkillsServiceUrl + '/' + skill, {}, {headers: {
+    return this.http.post<boolean>(environment.userServiceUrl + environment.addSkillsServiceUrl + '/' + skill, {}, {headers: {
       'Content-Type': 'text/plain',
     }
     });
@@ -22,7 +22,7 @@ export class SkillsService {
 
   public getSkills(): Observable<any>
   {
-    return this.http.get<any>(environment.getAllSkillsService,
+    return this.http.get<any>(environment.userServiceUrl + environment.getAllSkillsService,
       {headers: {
       }});
   }

@@ -4,8 +4,8 @@
 
 export const environment = {
   registrationServiceUrl: 'https://weiwu.online:8443/RegistrationService',
-  addSkillsServiceUrl: 'http://localhost:8084/admin/skills',
-  getAllSkillsService: 'http://localhost:8084/skills',
+  addSkillsServiceUrl: '/admin/skills',
+  getAllSkillsService: '/skills',
   authenticationServiceUrl: 'https://weiwu.online:8443/AuthService',
   userServiceUrl: 'https://weiwu.online:8443/UserService',
   registerEndpoint: '/register',

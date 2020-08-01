@@ -1,6 +1,15 @@
 <div class="skillbar" id="skills">
 </div>
-<div class="addskill container">
-    <input [(ngModel)]="skillName" placeholder="Add a Skill" type="text" name="skillName" id="skillName" size="25"><br>
+<div *ngIf="loadedValues==true" class="addskill container">
+            <input type="text" class="form-control" id="search-text" aria-describedby="search-text" 
+              [(ngModel)]="searchText" placeholder="Search for a skill" 
+              autofocus>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let skill of skills | filter: searchText"
+            appHighlight [searchedWord]="searchText" [content]="skill"  
+            [classToApply]="'font-weight-bold'" [setTitle]="'true'" (click)="updateSelected(skill)">
+            {{skill}}
+          </li>
+          </ul>
     <input type="submit" (click)="newSkill()" value="add">
 </div>

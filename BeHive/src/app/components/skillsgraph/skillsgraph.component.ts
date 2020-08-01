@@ -7,6 +7,7 @@ import { User } from 'src/app/classes/user';
 import { UserService } from 'src/app/services/user.service';
 import { Skill } from 'src/app/classes/skill';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { SkillsService } from 'src/app/services/skills.service';
 
 am4core.useTheme(am4themes_animated);
 @Component({
@@ -17,13 +18,23 @@ am4core.useTheme(am4themes_animated);
 export class SkillsgraphComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private chart: am4charts.XYChart;
-  skillName: string;
+  skillName = '';
+  skills: Array<string>;
+  loadedValues = false;
+  title = 'angular-text-search-highlight';
+  searchText = '';
 
-  constructor(private zone: NgZone, private userService: UserService) { }
+  constructor(private zone: NgZone, private userService: UserService, private skillsService: SkillsService) { }
 
   newSkill(){
-    this.userService.addSkill(this.skillName).subscribe();
-    this.generateChart();
+    if (this.skillName.length > 0)
+    {
+      this.userService.addSkill(this.skillName).subscribe();
+      this.generateChart();
+    }else
+    {
+      alert('Please select a valid skill from the list');
+    }
   }
 
   generateChart(){
@@ -47,7 +58,7 @@ export class SkillsgraphComponent implements OnInit, OnDestroy, AfterViewInit {
 
   addSkillToChart(chartName: string, skillName: string, valueSkill: any){
     console.log('click');
-    this.chart.data.push({category: skillName, value: valueSkill});
+      this.chart.data.push({category: skillName, value: valueSkill});
   }
 
   createSkillBar(name: string)
@@ -110,6 +121,19 @@ export class SkillsgraphComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.getSkills();
+  }
+
+  getSkills()
+  {
+    this.skillsService.getSkills().subscribe(
+      (response) => {
+        this.skillsService.skills = response;
+        console.log(this.skillsService);
+        this.skills = response;
+        this.loadedValues = true;
+      }
+    );
   }
 
   ngAfterViewInit(){
@@ -119,6 +143,12 @@ export class SkillsgraphComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnDestroy()
   {
     this.disposeChart();
+  }
+
+  updateSelected(skill){
+    console.log(skill);
+    this.skillName = skill;
+    this.searchText = skill;
   }
 
 }

@@ -14,8 +14,6 @@ export class UserService {
 
   private user: User;
 
-  private isAdmin: boolean;
-
   private readonly GETUSER_URL = environment.userDataUrl + environment.userDataEndpoint;
 
   private readonly ADD_SKILL_URL = environment.userDataUrl + environment.userAddSkillEndpoint;
@@ -43,13 +41,20 @@ export class UserService {
 
   getIsAdmin()
   {
-    return this.isAdmin;
+    if (localStorage.getItem('isAdmin') != null)
+    {
+      return(localStorage.getItem('isAdmin'));
+    }else
+    {
+      return null;
+    }
   }
 
-  setIsAdmin(flag: boolean)
+  setIsAdmin(flag: string)
   {
-    this.isAdmin = flag;
+    localStorage.setItem('isAdmin', flag);
   }
+
   addSkill(skill: string)
   {
       console.log('In add skill');

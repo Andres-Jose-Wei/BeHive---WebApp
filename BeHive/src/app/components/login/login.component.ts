@@ -20,12 +20,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     environment.isLogin = true;
     if (this.authenticationService.isLoggedIn()){
-          if (this.authenticationService.loggedIn === true)
+          if (this.authenticationService.isLoggedIn() != null)
           {
             environment.isLogin = false;
             this.router.navigate(['/dashboard'], {replaceUrl: true});
           }else
           {
+            environment.isLogin = true;
             sessionStorage.clear();
           }
     }
@@ -35,19 +36,12 @@ export class LoginComponent implements OnInit {
   {
     this.authenticationService.login(this.username, this.password).subscribe(
       (response) => {
-        this.authenticationService.checkToken().subscribe(
-          (check) => {
-            console.log('This is what came back: ', check);
-          }
-        );
         this.userService.loadUser().subscribe((user) => {
           console.log('Recieved', user);
           this.userService.setUser(user);
           console.log('Assigned', this.userService.getUser());
           environment.isLogin = false;
-          //Validate if user is admin here
-          this.userService.setIsAdmin(true);
-          if (!this.userService.getIsAdmin)
+          if (this.userService.getIsAdmin( ) == null)
           {
             this.router.navigate(['/dashboard'], {replaceUrl: true});
           }else
@@ -55,7 +49,6 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/admin'], {replaceUrl: true});
           }
         });
-        this.router.navigate(['/dashboard'], {replaceUrl: true});
       }
     );
   }

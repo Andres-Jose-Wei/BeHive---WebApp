@@ -15,6 +15,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserService } from './services/user.service';
 import { AdminconsoleComponent } from './components/adminconsole/adminconsole.component';
 import { AdminskillsComponent } from './components/adminskills/adminskills.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { HighlightDirective } from './pipes/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AdminskillsComponent } from './components/adminskills/adminskills.compo
     SkillsgraphComponent,
     NavbarComponent,
     AdminconsoleComponent,
-    AdminskillsComponent
+    AdminskillsComponent,
+    FilterPipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

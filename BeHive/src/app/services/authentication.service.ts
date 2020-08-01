@@ -17,7 +17,6 @@ export class AuthenticationService {
 
   public username: string;
   public password: string;
-  public loggedIn = false;
 
   private readonly LOGIN_URL = environment.authenticationServiceUrl + environment.loginEndpoint;
 
@@ -29,7 +28,7 @@ export class AuthenticationService {
 
   isLoggedIn()
   {
-    return this.loggedIn;
+    return sessionStorage.getItem('loggedIn');
   }
 
   login(username: string, password: string)
@@ -44,7 +43,7 @@ export class AuthenticationService {
         console.log(response);
         const token = 'token';
         sessionStorage.setItem('token', response[token]);
-        this.loggedIn = true;
+        sessionStorage.setItem('loggedIn', 'true');
       }));
   }
 
@@ -61,7 +60,6 @@ export class AuthenticationService {
       }}).pipe(map((response) => {
         console.log('Logged Out');
         environment.isLogin = true;
-        this.loggedIn = false;
         sessionStorage.clear();
         this.router.navigate(['/login'], {replaceUrl: true});
       }));
