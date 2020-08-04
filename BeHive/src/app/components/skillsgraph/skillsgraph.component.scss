@@ -26,17 +26,17 @@ input[type="text"]
 }
 
 li{
-    border: solid;
+    border:solid;
     background: none;
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #3498db;
+    border-color: #3498db;
     padding: 10px 10px;
     width: 250px;
     outline: none;
     color: white;
-    border-radius: 24px;
+    border-radius: 100px;
     transition: 0.25s
 }
 
@@ -62,13 +62,13 @@ input[type="submit"] {
     padding: 10px 10px;
 }
 
-input[type="submit"]:hover {
+input[type="submit"],li:hover {
     background: #2ecc71
 }
 
 ul{
-    border: solid;
-    border: 2px solid #2ecc71;
+    //border: solid;
+    //border: 2px solid #2ecc71;
     display: block;
     margin: 20px auto;
     padding: 10px 10px;
@@ -78,4 +78,17 @@ ul{
     overflow:hidden; 
     overflow-y:scroll;
     text-align: center;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgb(124, 124, 124);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
   }
