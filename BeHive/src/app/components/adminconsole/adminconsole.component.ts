@@ -7,7 +7,9 @@ import { environment } from 'src/environments/environment';
 })
 export class AdminconsoleComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    environment.isLogin = false;
+  }
 
   ngOnInit(): void {
     environment.isLogin = false;

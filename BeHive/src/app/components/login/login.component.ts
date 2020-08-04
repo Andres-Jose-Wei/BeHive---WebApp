@@ -18,16 +18,11 @@ export class LoginComponent implements OnInit {
               private userService: UserService) { }
 
   ngOnInit(): void {
-    environment.isLogin = true;
     if (this.authenticationService.isLoggedIn()){
           if (this.authenticationService.isLoggedIn() != null)
           {
             environment.isLogin = false;
             this.router.navigate(['/dashboard'], {replaceUrl: true});
-          }else
-          {
-            environment.isLogin = true;
-            sessionStorage.clear();
           }
     }
   }
@@ -43,9 +38,12 @@ export class LoginComponent implements OnInit {
           environment.isLogin = false;
           if (this.userService.getIsAdmin( ) == null)
           {
+            //sessionStorage.setItem('isLogin', 'true');
+            environment.isLogin = false;
             this.router.navigate(['/dashboard'], {replaceUrl: true});
           }else
           {
+            //sessionStorage.setItem('isLogin', 'true');
             this.router.navigate(['/admin'], {replaceUrl: true});
           }
         });

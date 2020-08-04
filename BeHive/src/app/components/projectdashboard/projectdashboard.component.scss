@@ -1,0 +1,98 @@
+.admin-container{
+    background-color: white;
+    border-radius: 10 px;
+}
+
+.main-container{
+    padding-top: 30px;
+    margin-left: 17.5%;
+    width: 75%;
+    height: auto;
+
+}
+
+h1{
+    color: #3C9CDC;
+}
+
+.admin-skills-containers{
+    padding-top: 30px;
+    margin-left: 6.6%;
+    margin-right: 6.6%;
+
+}
+
+td,th{
+    text-align: center;
+}
+
+.th1{
+    table-layout: fixed;
+    width: 20%;
+}
+
+.th2{
+    table-layout: fixed;
+    width: 60%;
+}
+
+.th3{
+    table-layout: fixed;
+    width: 20%;
+}
+
+// .button-table {
+//     border: 0;
+//     background: #2ecc71;
+//     margin: 20px auto;
+//     text-align: center;
+//     border: 2px solid #3C9CDC;
+//     outline: none;
+//     color: #3C9CDC;
+//     border-radius: 7px;
+//     transition: 0.25s;
+//     cursor: pointer;
+//     width: 50%;
+//     font-size: 18px;
+//     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+// }
+
+h2{
+    color: #2ecc71;
+    font-size: 36px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-btn{
+    border: 0;
+    background: #2ecc71;
+    margin: 20px auto;
+    margin-left: 38.5%;
+    text-align: center;
+    border: 5px solid #3C9CDC;
+    outline: none;
+    color: #3C9CDC;
+    border-radius: 7px;
+    transition: 0.25s;
+    cursor: pointer;
+    width: 25%;
+    font-size: 36px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button-table:hover {
+    background: #2ecc71
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #3C9CDC;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #3C9CDC;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #3C9CDC;
+  }

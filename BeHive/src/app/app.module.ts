@@ -17,6 +17,7 @@ import { AdminconsoleComponent } from './components/adminconsole/adminconsole.co
 import { AdminskillsComponent } from './components/adminskills/adminskills.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { HighlightDirective } from './pipes/highlight.directive';
+import { ProjectdashboardComponent } from './components/projectdashboard/projectdashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HighlightDirective } from './pipes/highlight.directive';
     AdminconsoleComponent,
     AdminskillsComponent,
     FilterPipe,
-    HighlightDirective
+    HighlightDirective,
+    ProjectdashboardComponent
   ],
   imports: [
     BrowserModule,
