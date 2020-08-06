@@ -6,6 +6,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdminconsoleComponent } from './components/adminconsole/adminconsole.component';
 import { ProjectdashboardComponent } from './components/projectdashboard/projectdashboard.component';
+import { CreateprojectComponent } from './components/createproject/createproject.component';
 
 const routes: Routes = [
 { path: 'login', component: LoginComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
 { path: 'dashboard', component: DashboardComponent },
 { path: 'admin', component: AdminconsoleComponent },
 { path: 'project', component: ProjectdashboardComponent },
+{ path: 'project/create', component: CreateprojectComponent },
 { path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 

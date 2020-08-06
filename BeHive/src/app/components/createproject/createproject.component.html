@@ -1,0 +1,45 @@
+<div class="main-container">
+    <div class="admin-container">
+
+        <div class="admin-skills-containers">
+            <h1 class="text-center"><strong>Create New Project</strong></h1>
+            <label class="project-label" for="project-name"><h1>Project Name</h1></label><br>
+            <input [(ngModel)]="name" class="project-input project-name" id="project-name" placeholder="Enter a project name"><br>
+            <label class="project-label" for="project-description"><h1>Description</h1></label><br>
+            <textarea [(ngModel)]="description" class="project-input project-description" rows="5" cols="100" id="project-description" placeholder="Tell everyone a little more about your project" maxlength="500"></textarea>
+            <section>
+                <label class="project-label"><h1>Positions</h1></label><br>
+                <div class="project-separator"></div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="th1" scope="col"><h1>Name</h1></th>
+                            <th class="th2" scope="col"><h1>Qty</h1></th>
+                            <th class="th3" scope="col"><h1>Skills</h1></th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr *ngFor="let position of positions ; let i = index; trackBy:trackByFn">
+                            <td><input [(ngModel)]="positions[i].name" class="project-position" placeholder="Enter the position name"></td>
+                            <td><input type="number" min="0" max="10" [(ngModel)]="qty[i]" class="project-quantity" placeholder="ex:5"></td>
+                            <td>
+                                <input [(ngModel)]="skillName[i]"   (keydown.Enter)="addSkillPosition(i,skillName[i])" list="skill-list" class="project-position" placeholder="Press enter after every skill" autocomplete="true">
+                                <span *ngFor="let pskill of position.skills ; let j = index; trackBy:trackByFn" 
+                                    class="badge badge-primary"
+                                    (click)="removeSkillPosition(i,j)">{{pskill}}</span>
+                            </td>
+                        </tr>
+                        
+                        <datalist id="skill-list">
+                            <option *ngFor="let skill of skills; let k = index; trackBy:trackByFn" value="{{skill}}">
+                        </datalist>
+                    </tbody>
+                </table>
+                <input class="add-btn" type="submit" (click)="addPosition()" value="+">
+            </section>
+            <input class="form-btn" type="submit" (click)="createProject()" value="Create">
+        </div>
+
+                
+</div>
+</div>
